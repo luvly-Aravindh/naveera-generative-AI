@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { Lock, Clock, Shield } from "lucide-react"
 
-const API_URL = "https://getnos.io/naveera-generative-AI/index.php"
-const THANK_YOU_URL = "https://getnos.io/naveera-generative-AI/thank-you.html"
+const API_URL = "https://naveeratech.com/campaigns/generative-ai/index.php"
+const THANK_YOU_URL = "https://calendly.com/naveenkumar-m-naveeratech/discovery_call"
 
 export default function LeadForm() {
 

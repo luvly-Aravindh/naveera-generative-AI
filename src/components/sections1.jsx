@@ -9,6 +9,20 @@ import LoadingBar from '../components/LoadingBar.jsx'
    VIDEO SECTION
 ═══════════════════════════════════════════════════════════ */
 export function VideoSection() {
+    // PLAYER SCRIPT
+    const playerScript = document.createElement("script");
+    playerScript.src = "https://fast.wistia.com/player.js";
+    playerScript.async = true;
+
+    // EMBED SCRIPT
+    const embedScript = document.createElement("script");
+    embedScript.src =
+      "https://fast.wistia.com/embed/4bj8ydre24.js";
+    embedScript.async = true;
+    embedScript.type = "module";
+
+    document.body.appendChild(playerScript);
+    document.body.appendChild(embedScript);
   return (
     <>
       <section className="sp" style={{ background:'#fff' }}>
@@ -39,102 +53,45 @@ export function VideoSection() {
           </Reveal>
 
 
-      <motion.div
+    <motion.div
   initial={{ opacity: 0, y: 52, scale: 0.95 }}
   whileInView={{ opacity: 1, y: 0, scale: 1 }}
   viewport={{ once: true, margin: "-60px" }}
   transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-  className="relative rounded-card-xl overflow-hidden mx-auto max-w-4xl group cursor-pointer"
+  className="relative rounded-[32px] overflow-hidden mx-auto max-w-4xl"
   style={{
     boxShadow: "0 32px 100px rgba(1,12,68,0.22)",
     border: "1px solid rgba(255,255,255,0.08)",
   }}
 >
-  <div style={{ paddingTop: "56.25%", position: "relative" }}>
-    {/* Background image */}
-    <img
-      src={Vimage}
-      alt="AI Product Demo"
-      className="absolute inset-0 w-full h-full object-cover"
-    />
 
-    {/* Dark overlay */}
-    <div
-      className="absolute inset-0"
+  {/* WISTIA SCRIPTS */}
+  <script
+    src="https://fast.wistia.com/player.js"
+    async
+  ></script>
+
+  <script
+    src="https://fast.wistia.com/embed/4bj8ydre24.js"
+    async
+    type="module"
+  ></script>
+
+  {/* VIDEO */}
+  <div className="w-full aspect-video">
+
+    <wistia-player
+      media-id="4bj8ydre24"
+      aspect="1.7777777777777777"
       style={{
-        background:
-          "linear-gradient(to bottom, rgba(1,12,68,0.25), rgba(1,12,68,0.85))",
+        width: "100%",
+        height: "100%",
+        display: "block",
       }}
-    />
+    ></wistia-player>
 
-    {/* Orange glow */}
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          "radial-gradient(circle at center, rgba(238,107,0,0.12), transparent 65%)",
-      }}
-    />
-
-    {/* Content */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6">
-      <motion.button
-        onClick={() =>
-    document.getElementById("contact")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    })
-  }
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="relative w-20 h-20 rounded-full flex items-center justify-center"
-        style={{
-          background: "linear-gradient(135deg,#FEC800,#EE6B00)",
-          boxShadow: "0 8px 40px rgba(238,107,0,0.5)",
-        }}
-      >
-        <Play size={28} color="white" style={{ marginLeft: 4 }} />
-        <span className="absolute inset-0 rounded-full border-2 border-yellow/40 scale-125 animate-ping opacity-40" />
-      </motion.button>
-
-      <div className="text-center max-w-2xl">
-        <p className="f-display font-bold text-white text-lg sm:text-xl mb-2 leading-snug">
-          Move From Stalled Demos To AI Features That Ship
-        </p>
-
-        <p className="f-body text-sm text-white/70">
-          See how 200+ US engineering teams stopped doing demos and started
-          shipping Generative AI into production
-        </p>
-      </div>
-    </div>
   </div>
 
-  {/* Stats strip */}
-  <div className="border-t border-white/8 grid grid-cols-3 divide-x divide-white/8 bg-[#010C44]/90">
-    {[
-      ["200+", "Teams deployed"],
-      ["11 wks", "Avg. production time"],
-      ["$800K+", "Quarterly savings"],
-    ].map(([v, l], i) => (
-      <div key={i} className="py-4 px-5 text-center">
-        <p
-          className="f-display font-extrabold text-lg leading-none mb-1"
-          style={{
-            background: "linear-gradient(180deg,#FEC800,#EE6B00)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          {v}
-        </p>
-
-        <p className="f-body text-[10px] text-white/45">
-          {l}
-        </p>
-      </div>
-    ))}
-  </div>
 </motion.div>
         </div>
       </section>
@@ -315,10 +272,10 @@ function SvcCard({ s, i }) {
         {s.title}
       </h3>
       <p className="f-body text-sm text-body leading-relaxed mb-4">{s.body}</p>
-      <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+      {/* <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
         <span className="f-display text-xs font-bold text-orange">Learn more</span>
         <ArrowRight size={11} color="#EE6B00" />
-      </div>
+      </div> */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-card scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"
            style={{ background:'linear-gradient(90deg,#EE6B00,#FEC800)' }} />
     </motion.div>

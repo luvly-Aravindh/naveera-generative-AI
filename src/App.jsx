@@ -3,6 +3,7 @@ import Navbar    from './components/Navbar.jsx'
 import Hero      from './components/Hero.jsx'
 import PainPoints from './components/PainPoints.jsx'
 import LeadForm from './components/LeadForm.jsx'
+import GenAISection from './components/GenAISection.jsx'
 import { VideoSection, Testimonials, Services, Results } from './components/sections1.jsx'
 import { Process, TrustBadges, Comparison, FAQ, FinalCTA, Footer } from './components/sections2.jsx'
 
@@ -15,6 +16,7 @@ export default function App() {
         <Hero />
         <PainPoints />
         <VideoSection />
+        <GenAISection />
         <Testimonials />
         <Services />
         <Results />
